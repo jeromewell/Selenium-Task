@@ -1,6 +1,7 @@
 package org.table;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ public class Table {
 	driver.get("https://www.techlistic.com/p/demo-selenium-practice.html");
 	driver.manage().window().maximize();
 	
-	
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	WebElement table = driver.findElement(By.tagName("table"));
 	List<WebElement> row = table.findElements(By.tagName("tr"));
 	for (int i = 0; i < row.size(); i++) {
